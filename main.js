@@ -61,3 +61,13 @@ function split() {
     result.innerHTML = `${minute < 10 ? '0' : ''}${minute} : ${seg < 10 ? '0' : ''}${seg} : ${miliseg < 10 ? '0' : ''}${miliseg}`;
     enters.innerHTML += `<div class="container">${result.innerHTML}</div>`;
 }
+
+document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'c') {
+        clear();
+    } else if (event.key === 'Enter') {
+        split();
+    } else if (event.key === ' ') {
+        startStop();
+    }
+})
