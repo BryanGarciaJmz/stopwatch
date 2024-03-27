@@ -3,6 +3,7 @@ let seg = 0;
 let minute = 0;
 
 let result = document.querySelector('.result');
+let enters = document.querySelector('.enters');
 const buttonElement = document.getElementById('main-button');
 
 let isPlay = false;
@@ -10,6 +11,10 @@ let interval;
 
 buttonElement.addEventListener('click', () => {
     startStop();
+})
+
+document.getElementById('clear-button').addEventListener('click', () => {
+    clear()
 })
 
 function startStop() {
@@ -38,4 +43,11 @@ function logic() {
         minute++;
     }
     miliseg++;
+}
+
+function clear() {
+    miliseg = 0;
+    seg = 0;
+    minute = 0;
+    result.innerHTML = `${minute < 10 ? '0' : ''}${minute} : ${seg < 10 ? '0' : ''}${seg} : ${miliseg < 10 ? '0' : ''}${miliseg}`;
 }
