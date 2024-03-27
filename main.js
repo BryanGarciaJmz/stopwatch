@@ -14,7 +14,11 @@ buttonElement.addEventListener('click', () => {
 })
 
 document.getElementById('clear-button').addEventListener('click', () => {
-    clear()
+    clear();
+})
+
+document.getElementById('split-button').addEventListener('click', () => {
+    split();
 })
 
 function startStop() {
@@ -49,5 +53,11 @@ function clear() {
     miliseg = 0;
     seg = 0;
     minute = 0;
+    enters.innerHTML = '';
     result.innerHTML = `${minute < 10 ? '0' : ''}${minute} : ${seg < 10 ? '0' : ''}${seg} : ${miliseg < 10 ? '0' : ''}${miliseg}`;
+}
+
+function split() {
+    result.innerHTML = `${minute < 10 ? '0' : ''}${minute} : ${seg < 10 ? '0' : ''}${seg} : ${miliseg < 10 ? '0' : ''}${miliseg}`;
+    enters.innerHTML += `<div class="container">${result.innerHTML}</div>`;
 }
